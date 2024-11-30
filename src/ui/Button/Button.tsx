@@ -1,16 +1,18 @@
-import { FC, ReactNode } from "react"
-import styles from './Button.module.css'
+import { ButtonHTMLAttributes, FC, ReactNode } from "react"
 
-type Button = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: ReactNode
-    size: string
+    width: string
 }
 
-const Button: FC<Button> = ({ size, children }) => {
+const Button: FC<ButtonProps> = ({ width, children, ...props }) => {
   return (
-    <button className={`${styles.button}`} style={{width:`${size}`}}>
-        {children}  
+    <div className={`${width} h-[3.2rem]`}>
+    <button {...props} className={`bg-[#365FAC] text-white size-full`}>
+      {children}  
     </button>
+    </div>
+   
   )
 }
 

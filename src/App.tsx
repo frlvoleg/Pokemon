@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import './App.css'
-import Button from './ui/Button/Button'
-import { Typography } from './ui/Typography/Typography'
+import SignIn from './components/SignIn/SignIn'
 
 function App() {
+  const [signIn, setSignIn] = useState<boolean>(true);
+  
   
 
   return (
     <>
-      <Button size='352px'><Typography>{'Sign in'}</Typography> </Button>
+      <SignIn signIn={!signIn}/>
     </>
   )
 }
