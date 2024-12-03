@@ -1,15 +1,15 @@
-import { FC, InputHTMLAttributes } from "react"
+import { FC, InputHTMLAttributes } from "react";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-    width? : string
-    placeholderText?: string
-}
+  classDiv?: string;
+  classInput?: string;
+};
 
- const Input: FC<InputProps> = ({width, placeholderText, ...props}) =>{
+const Input: FC<InputProps> = ({ ...props }) => {
   return (
-      <div  className={`${width} h-[3.2rem]`}>
-          <input  {...props} type="text" placeholder={`${placeholderText}`} className='placeholder:text-[1.4rem] size-full'/>
+    <div className={`${props.classDiv}`}>
+      <input className={`${props.classInput}`} {...props} />
     </div>
-  )
-}
-export default Input
+  );
+};
+export default Input;

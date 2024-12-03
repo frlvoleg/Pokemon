@@ -1,19 +1,19 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from "react"
+import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    children: ReactNode
-    width: string
-}
+  children: ReactNode;
+  classDiv: string;
+  classBtn: string;
+};
 
-const Button: FC<ButtonProps> = ({ width, children, ...props }) => {
+const Button: FC<ButtonProps> = ({ ...props }) => {
   return (
-    <div className={`${width} h-[3.2rem]`}>
-    <button {...props} className={`bg-[#365FAC] text-white size-full`}>
-      {children}  
-    </button>
+    <div className={`${props.classDiv}`}>
+      <button className={`${props.classBtn} h-full`} {...props}>
+        {props.children}
+      </button>
     </div>
-   
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
